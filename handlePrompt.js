@@ -58,7 +58,6 @@ export const createMCPContext = (transaction) => {
                     blockNumber: transaction?.blockNumber, 
                     confirmations: transaction?.confirmations,
                 }
-
             }
         ], 
         query: 'Explain this Ethereum transaction in simple terms for a user',
