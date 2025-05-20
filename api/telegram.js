@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf'
 import { InfuraProvider } from 'ethers'
 import 'dotenv/config'
-import { queryGroq, createMCPContext } from './handlePrompt.js'
+import { queryGroq, createMCPContext } from '../handlePrompt.js'
 
 
 
@@ -9,7 +9,6 @@ const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
 const BOT_USERNAME = '@LedgerLook'
 const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
 
-export const runTelegramBot = () => {
     bot.start((ctx) => {
         ctx.reply(`👋Hey! I'm ${BOT_USERNAME}. Send me a tx hash to check transactions. Or ask me something`)
     })
@@ -41,9 +40,20 @@ export const runTelegramBot = () => {
             await ctx.reply('Error fetching transaction. Please try again later')
         }
     })
+    
 
-    bot.launch();
-    console.log('Telegram Ethereum transaction bot is running...');
+export default async function handler (req, res) {
+    if (req.method === 'POST') {
+        try {
+            await bot.handleUpdate(req.body)
+            res.status(200).send('OK')
+        } catch (error) {
+            console.error('Telegram Webhook error', error)
+            res.status(500).send('Bot error')
+        }
+    } else {
+        res.status(405).send('Method Not Allowed')
+    }
 }
 
 

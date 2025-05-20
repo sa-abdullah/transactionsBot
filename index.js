@@ -1,3 +1,3 @@
-import { runTelegramBot } from './telegram.js'
+// import { runTelegramBot } from './api/telegram.js'
 
-runTelegramBot()
+// runTelegramBot()
