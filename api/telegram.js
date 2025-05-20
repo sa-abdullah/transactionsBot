@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf'
 import { InfuraProvider } from 'ethers'
 import 'dotenv/config'
-import { queryPrompt, createMCPContext } from '../handlePrompt.js'
+import { queryGroq, createMCPContext } from '../handlePrompt.js'
 
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
@@ -17,7 +17,7 @@ const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
         const txHashMatch = text.match(/0x[a-fA-F0-9]{64}/g)
 
         if (!txHashMatch) {
-            await ctx.reply(await queryPrompt(text))
+            await ctx.reply(await queryGroq(text))
             return 
         }
 
@@ -32,7 +32,7 @@ const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
             }
 
             const mcpContext = createMCPContext(transaction)
-            await ctx.reply(await queryPrompt(mcpContext))
+            await ctx.reply(await queryGroq(mcpContext))
 
         } catch (error) {
             console.error('Error fetching transaction: ', error);

@@ -2,16 +2,16 @@ import axios from 'axios'
 import 'dotenv/config'
 import { formatUnits, formatEther } from 'ethers'
 
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/openai/v1/chat/completions'
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 
-export const queryPrompt = async (mcpContext) => {
+export const queryGroq = async (mcpContext) => {
     try {
 
         const response = await axios.post(
-            DEEPSEEK_API_URL, 
+            GROQ_API_URL, 
             {
-                model: 'deepseek-chat', 
+                model: 'llama-3.3-70b-versatile', 
                 messages: [
                     {
                         role: 'system', 
@@ -21,13 +21,12 @@ export const queryPrompt = async (mcpContext) => {
                         role: 'user', 
                         content: JSON.stringify(mcpContext)
                     }
-                ], 
-                'stream': false
+                ]
             }, 
             {
                 headers: {
                     'Content-Type': 'application/json', 
-                    'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`
+                    'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
                 }, 
 
             }
@@ -36,7 +35,7 @@ export const queryPrompt = async (mcpContext) => {
         return response.data.choices[0].message.content
 
     } catch (error) {
-        console.error( 'DEEPSEEK API Error', error.response?.data || error.message)
+        console.error( 'GROQ API Error', error.response?.data || error.message)
         return 'Sorry. I could not analyse this response at the moment'
     }
 }
