@@ -23,7 +23,7 @@ const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
         }
 
         const txHash = txHashMatch[0]
-        await ctx.reply('Fetching transaction details for:\n${txHash}')
+        await ctx.reply(`Fetching transaction details for:\n${txHash}`)
 
         try {
             const transaction = await provider.getTransaction(txHash)
@@ -40,7 +40,7 @@ const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
             await ctx.reply('Error fetching transaction. Please try again later')
         }
     })
-    
+
 
 export default async function handler (req, res) {
     if (req.method === 'POST') {
