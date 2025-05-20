@@ -11,7 +11,7 @@ export const queryGroq = async (mcpContext) => {
         const response = await axios.post(
             GROQ_API_URL, 
             {
-                model: 'llama-3.3-70b-versatile', 
+                model: 'deepseek-chat', 
                 messages: [
                     {
                         role: 'system', 
