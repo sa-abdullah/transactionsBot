@@ -3,7 +3,7 @@ import { Telegraf } from 'telegraf';
 import 'dotenv/config';
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
-const webhookUrl = 'https://your-vercel-app.vercel.app/api/telegram';
+const webhookUrl = 'https://ledgerlook.vercel.app/api/telegram';
 
 const setWebhook = async () => {
   try {
