@@ -2,7 +2,7 @@ import axios from 'axios'
 import 'dotenv/config'
 import { formatUnits, formatEther } from 'ethers'
 
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions'
+const DEEPSEEK_API_URL = 'https://api.deepseek.com/openai/v1/chat/completions'
 
 
 export const queryPrompt = async (mcpContext) => {
