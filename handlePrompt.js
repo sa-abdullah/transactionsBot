@@ -11,7 +11,7 @@ export const queryGroq = async (mcpContext) => {
         const response = await axios.post(
             GROQ_API_URL, 
             {
-                model: 'deepseek-chat', 
+                model: 'mixtral-8x7b-instruct', 
                 messages: [
                     {
                         role: 'system', 
