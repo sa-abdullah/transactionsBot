@@ -5,7 +5,8 @@
   "description": "This AI assistants helps blockchain newbies to get enough details about their transactions directly into their dm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "set-webhook": "node setWebhook.js"
   },
   "repository": {
     "type": "git",
