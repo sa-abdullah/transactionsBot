@@ -3,7 +3,9 @@ import { InfuraProvider } from 'ethers'
 import 'dotenv/config'
 import { queryGroq, createMCPContext } from '../handlePrompt.js'
 
-
+if (!process.env.INFURA_PROJECT_ID) {
+  throw new Error("Missing INFURA_PROJECT_ID in environment variables.")
+}
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
 const BOT_USERNAME = '@LedgerLook'
