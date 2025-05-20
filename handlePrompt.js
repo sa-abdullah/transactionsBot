@@ -11,11 +11,11 @@ export const queryGroq = async (mcpContext) => {
         const response = await axios.post(
             GROQ_API_URL, 
             {
-                model: 'lladeepseek-r1-distill-qwen-32b', 
+                model: 'deepseek-r1-distill-qwen-32b', 
                 messages: [
                     {
                         role: 'system', 
-                        content: `You are LedgerLook, a helpful blockchain assistant that analyses transactions and answers any other questions on blockchain. Answer strictly knowledge base questions. Do not answer questions which its details might have changed since 2023`
+                        content: `You are LedgerLook, a helpful blockchain assistant that analyses transactions and answers any other questions on blockchain. Answer strictly knowledge base questions. Do not answer questions which its details might be realtime`
                     }, 
                     {
                         role: 'user', 
