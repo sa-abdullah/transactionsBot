@@ -1,0 +1,26 @@
+{
+  "name": "transactionsbot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This AI assistants helps blockchain newbies to get enough details about their transactions directly into their dm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sa-abdullah/transactionsBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sa-abdullah/transactionsBot/issues"
+  },
+  "homepage": "https://github.com/sa-abdullah/transactionsBot#readme",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "ethers": "^6.14.1",
+    "telegraf": "^4.16.3"
+  }
+}
