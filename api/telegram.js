@@ -1,15 +1,14 @@
 import { Telegraf } from 'telegraf'
-import { InfuraProvider } from 'ethers'
+import { JsonRpcProvider } from 'ethers'
 import 'dotenv/config'
 import { queryGroq, createMCPContext } from '../handlePrompt.js'
 
-if (!process.env.INFURA_PROJECT_ID) {
-  throw new Error("Missing INFURA_PROJECT_ID in environment variables.")
-}
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN)
 const BOT_USERNAME = '@LedgerLook'
-const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
+// const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
+const provider = new JsonRpcProvider(`https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`)
+
 
     bot.start((ctx) => {
         ctx.reply(`👋Hey! I'm ${BOT_USERNAME}. Send me a tx hash to check transactions. Or ask me something`)
