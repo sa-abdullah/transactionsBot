@@ -36,7 +36,7 @@ const provider = new InfuraProvider('sepolia', process.env.INFURA_PROJECT_ID)
 
         } catch (error) {
             console.error('Error fetching transaction: ', error);
-            await ctx.reply(`Error fetching transaction. Please try again later}`)
+            await ctx.reply(`Error fetching transaction. Please try again later`)
         }
     })
 
