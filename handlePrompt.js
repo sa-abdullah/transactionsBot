@@ -40,7 +40,7 @@ export const queryGroq = async (mcpContext) => {
     }
 }
 
-export const createMCPContext = () => {
+export const createMCPContext = (transaction) => {
     return {
         context: [
             {
